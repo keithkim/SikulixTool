@@ -255,7 +255,7 @@ public class Tool {
     }
     String header = "";
     Element onMain = Do.onMain();
-    int fHeight = (int) (onMain.h * 0.8) ;
+    int fHeight = (int) (onMain.h * 0.8);
     int fWidth = 600;
     if (isMarkUp) {
       MutableDataSet options = new MutableDataSet();
@@ -757,7 +757,7 @@ public class Tool {
               box.pack();
             }
           } else if ("x".equals("" + e.getKeyChar())) {
-          // X Masking (off)
+            // X Masking (off)
             if (masking) {
               actionMaskingStop();
             } else {
@@ -1244,14 +1244,12 @@ public class Tool {
       frame.setVisible(false);
     }
     if (SX.isNull(app)) {
-      String msg = "name an application to focus";
+      String msg = "select an application to focus";
       if (!appName.isEmpty()) {
-        msg = "name an application to focus\nor leave blank to focus " + appName + "\nor click Cancel to reset";
-        app = Do.input(msg, "SikulixTool::WindowFocus", intro);
-      } else {
-        List<String> apps = Window.getApps();
-        app = Do.popSelect("select app", apps.toArray(new String[0]));
+        msg = "select an application to focus\nor click Cancel to reset";
       }
+      List<String> apps = Window.getApps();
+      app = Do.popSelect("select app", apps.toArray(new String[0]));
       if (SX.isNotNull(app)) {
         shouldrun = true;
       } else {
